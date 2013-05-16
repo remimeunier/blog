@@ -9,6 +9,11 @@
   <b>Content:</b>
   <%= @post.content %>
 </p>
+<p>
+  <b>Vidéo:</b>
+  <%= @post.link %>
+  <iframe width="560" height="315" src="http://www.youtube.com/embed/<%= @post.link %>" frameborder="0" allowfullscreen></iframe>
+</p>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
