@@ -23,6 +23,10 @@
     <%= f.label :link %><br />
     <%= f.text_field :link %>
   </div>
+  <div class="field">
+    <%= f.label :genre_id %><br />
+    <%= f.select(:genre_id, Genre.all.map {|r| [r.name,r.id] }) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,3 +1,4 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :title, :created_at, :link
+  belongs_to :genre
+  attr_accessible :content, :title, :created_at, :link, :genre_id
 end
