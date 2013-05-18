@@ -1,24 +1,22 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
 
 
-# Gems used only for assets and not required
-# in production environments by default.
+
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+	#pres-compilateur css
+  gem 'sass-rails',   '~> 3.2.3' 
+  	#pres-compilateur javascripte
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  	# a regarder
   gem 'uglifier', '>= 1.0.3'
 end
 
+	#integration du jquery
 gem 'jquery-rails'
+	#authentification
 gem 'devise'
+	#gestion des droits d'acces
+gem "cancan"
