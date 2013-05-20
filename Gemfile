@@ -20,3 +20,6 @@ gem 'jquery-rails'
 gem 'devise'
 	#gestion des droits d'acces
 gem "cancan"
+	#image
+gem "paperclip"
+

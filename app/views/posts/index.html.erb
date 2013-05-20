@@ -6,6 +6,7 @@
     <th>Content</th>
     <th>Link</th>
     <th>Genre</th>
+    <th>Image</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +18,7 @@
     <td><%= post.content %></td>
     <td><%= post.link %></td>
     <td><%= post.genre.name %></td>
+    <td><%= image_tag post.image.url %></td>
     <td><%= link_to 'Show', post %></td>
     <% if user_signed_in? && current_user.is_admin? %>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
