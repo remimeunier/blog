@@ -46,11 +46,16 @@
 </p>
   <img src="{{image.url}}">
 <p>
-
+  <b>Genre</b> {{  genre }}
 </p>
 <p>
-  <b>Vidéo:</b>
+  <b>Vidéo:</b><br/>
   <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ link }}" frameborder="0" allowfullscreen></iframe>
+</p>
+<p>
+  <a href="#" class="post-link" data-json="/posts/{{prev_post}}.json">Previous Post</a><br/>
+  <a href="#" class="post-link" data-json="/posts/{{next_post}}.json">Next Post</a>
+
 </p>
 
 </script>
