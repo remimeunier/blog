@@ -1,6 +1,8 @@
 <h1>Listing posts</h1>
 
-<table>
+<div id="display-post" ></div>
+
+<table id="posts">
   <tr>
     <th>Title</th>
     <th>Content</th>
@@ -19,7 +21,7 @@
     <td><%= post.link %></td>
     <td><%= post.genre.name %></td>
     <td><%= image_tag post.image.url %></td>
-    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Show', "#", class: "post-link", data: {:json => post_path( id: post.id, format: :json )} %></td>
     <% if user_signed_in? && current_user.is_admin? %>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,3 +34,23 @@
 <% if user_signed_in? && current_user.is_admin? %>
 <%= link_to 'New Post', new_post_path %>
 <%  end %>
+
+<script id="post-template" type="text/template">
+
+  <h2>{{ title }}</h2>
+  
+
+<p>
+  <b>Content:</b>
+   {{ content }}
+</p>
+  <img src="{{image.url}}">
+<p>
+
+</p>
+<p>
+  <b>Vidéo:</b>
+  <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ link }}" frameborder="0" allowfullscreen></iframe>
+</p>
+
+</script>

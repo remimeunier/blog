@@ -1,3 +1,16 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+
+	if $("#posts").length
+		new PostDisplay()
+
+class PostDisplay
+
+	recieveJson: ->
+		$('#display-post *').remove()
+		$.getJSON $(this).attr('data-json'), (data) -> 
+			$('#display-post').append Mustache.to_html($('#post-template').html(), data)
+	
+
+
+	constructor: ->
+		$('.post-link').click( @recieveJson )
