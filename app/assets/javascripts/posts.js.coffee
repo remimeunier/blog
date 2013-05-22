@@ -1,7 +1,7 @@
 jQuery ->
 
 	if $("#posts").length
-		new PostDisplay($('.container'))
+		new PostDisplay()
 
 class PostDisplay
 
@@ -10,5 +10,5 @@ class PostDisplay
 		$.getJSON $(this).attr('data-json'), (data) -> 
 			$('#display-post').append Mustache.to_html($('#post-template').html(), data)	
 
-	constructor: (@document) ->
-		$('.post-link').click( @recieveJson )
+	constructor: ->
+		$(document).on 'click', '.post-link', @recieveJson
