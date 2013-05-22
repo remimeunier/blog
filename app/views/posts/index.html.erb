@@ -2,6 +2,7 @@
 
 <div id="display-post" ></div>
 
+
 <table id="posts">
   <tr>
     <th>Title</th>
@@ -15,7 +16,7 @@
   </tr>
 
 <% Genre.all.each do |g| %>
-  <p><%= g.name %></p>
+  <p><%= g.name %> : <%= Post.where(genre_id: g.id).count() %></p>
 <% end %>
 
 <% @posts.each do |post| %>
