@@ -3,6 +3,13 @@ jQuery ->
 	if $("#posts").length
 		new PostDisplay()
 
+	$('.genre').click ->
+		genreId = $(this).attr("data-click-id")
+		$('.post').removeClass('cache')
+		if genreId != "0"
+			$('.post[data-genre-id != '+genreId+']').addClass('cache')
+			
+
 class PostDisplay
 
 	recieveJson: ->
@@ -12,3 +19,4 @@ class PostDisplay
 
 	constructor: ->
 		$(document).on 'click', '.post-link', @recieveJson
+
