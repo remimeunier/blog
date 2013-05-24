@@ -22,6 +22,8 @@ gem 'devise'
 gem "cancan"
 	#image
 gem "paperclip"
-
+	#creation jSON
 gem "active_model_serializers"
+	#bootstrap init
+gem "bootstrap-sass-rails"
 
