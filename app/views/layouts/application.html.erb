@@ -22,24 +22,32 @@
           <li class="active"><%= link_to "Accueil", root_path %></li>
           <li><a href="#about">About</a></li>
         </ul>
+        <% if user_signed_in? %>
         <p class="navbar-text pull-right">
-          <% if user_signed_in? %>
             Connecté en tant que <%= current_user.email %>. Ce n'est pas vous ?
-            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-          <% else %>
-            <%= link_to "Enregistrez vous", new_user_registration_path %> ou <%= link_to "Connectez vous", new_user_session_path %>
-          <% end %>
+            <%= link_to "Deconnection", destroy_user_session_path, :method => :delete %>
         </p>
+        <% else %> 
+          <%= form_for("user", :url => user_session_path, html: {class: 'navbar-form pull-right'}) do |f| %>
+            <%= f.text_field :email, placeholder: 'Email', class: 'span2' %>
+            <%= f.password_field :password, placeholder: 'Mot-de-passe', class: 'span2' %>
+            <%= f.submit 'Sign in', class: 'btn' %>
+          <% end %>
+        <% end %>
       </div><!--/.nav-collapse -->
     </div>
   </div>
 </div>
 
+<div class="container main-container">
+  <!-- Affichage des messages -->
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
 
-
-<div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   <%= yield %>
 </div>
 
