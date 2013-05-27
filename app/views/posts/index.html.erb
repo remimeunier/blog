@@ -4,19 +4,9 @@
 
 
 <table id="posts">
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Link</th>
-    <th>Genre</th>
-    <th>Image</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
   <!-- Selection du genre -->
-  <ul class="nav nav-pills">
+  <ul class="nav nav-pills" id="gender-filter">
     <li class="active", data-active-id = '0' >
       <a class = 'genre', data-click-id = '0' >Tout</a>
     </li>
@@ -30,20 +20,15 @@
   </ul>
 
   <!-- Affichage des postes -->
-  <% @posts.each do |post| %>
-    <tr class ='post' data-genre-id = '<%= post.genre_id %>'>
-      <td><%= post.title %></td>
-      <td><%= post.content %></td>
-      <td><%= post.link %></td>
-      <td><%= post.genre.name %></td>
-      <td><%= image_tag post.image.url, class: "img-rounded" %></td>
-      <td><%= link_to 'Show', "#", class: "post-link", data: {:json => post_path( id: post.id, format: :json )} %></td>
-     <% if user_signed_in? && current_user.is_admin? %>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
-  <% end %>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="span3 post" data-genre-id = '<%= post.genre_id %>' >
+          <%= link_to "#", class: "post-link", data: {:json => post_path( id: post.id, format: :json )} do %>
+            <%= image_tag post.image.url, class: "img-rounded" %>
+          <% end %>
+      </div>
+   <% end %>
+  </div>
 
 </table>
 
@@ -70,9 +55,14 @@
   <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ link }}" frameborder="0" allowfullscreen></iframe>
 </p>
 <p>
-  <a href="#" class="post-link" data-json="/posts/{{prev_post}}.json">Previous Post</a><br/>
-  <a href="#" class="post-link" data-json="/posts/{{next_post}}.json">Next Post</a>
+  <a href="#" class="post-link" data-json="/posts/{{prev_post}}.json"><i class="icon-fast-backward"></i></a>
+  <% if user_signed_in? && current_user.is_admin? %>
+    <a href="posts/{{id}}/edit" >Edit</a>
+    <a href=""></a>
+<% end %>
+  <a href="#" class="post-link" data-json="/posts/{{next_post}}.json"><i class="icon-fast-forward"></i></a>
 </p>
+
 
 <hr/>
 </script>

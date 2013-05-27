@@ -9,7 +9,7 @@ jQuery ->
 		if genreId != "0"
 			$('.post[data-genre-id != '+genreId+']').addClass('cache')
 
-		$('li').removeAttr('class')
+		$('#gender-filter li').removeAttr('class')
 		$('li[data-active-id = '+genreId+']').attr('class','active')
 			
 

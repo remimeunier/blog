@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :title, :content, :image, :genre, :next_post, :prev_post, :link
+  attributes :id,:title, :content, :image, :genre, :next_post, :prev_post, :link
 
   def genre
   	object.genre.name

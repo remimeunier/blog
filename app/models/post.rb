@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
 
   	# voir la gem papercast avec imagemagic pour le redimmensionnement
-  has_attached_file :image
+  has_attached_file :image, :styles => { :thumb => "300x300"}
 
 	validates_attachment_presence :image
 	validates_attachment_size :image, :less_than => 5.megabytes
