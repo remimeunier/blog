@@ -16,12 +16,18 @@
   </tr>
 
   <!-- Selection du genre -->
-  <div href='' class = 'genre', data-click-id = '0' >Tout</div>
-  <% Genre.all.each do |g| %>
-      <div href='' class = 'genre', data-click-id = '<%= g.id %>' >
-       <%= g.name %> : <%= Post.where(genre_id: g.id).count() %>
-      </div>
-  <% end %>
+  <ul class="nav nav-pills">
+    <li class="active", data-active-id = '0' >
+      <a class = 'genre', data-click-id = '0' >Tout</a>
+    </li>
+    <% Genre.all.each do |g| %>
+      <li data-active-id = '<%= g.id %>'>
+        <a class = 'genre', data-click-id = '<%= g.id %>' >
+           <%= g.name %> : <%= Post.where(genre_id: g.id).count() %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
 
   <!-- Affichage des postes -->
   <% @posts.each do |post| %>
@@ -30,7 +36,7 @@
       <td><%= post.content %></td>
       <td><%= post.link %></td>
       <td><%= post.genre.name %></td>
-      <td><%= image_tag post.image.url %></td>
+      <td><%= image_tag post.image.url, class: "img-rounded" %></td>
       <td><%= link_to 'Show', "#", class: "post-link", data: {:json => post_path( id: post.id, format: :json )} %></td>
      <% if user_signed_in? && current_user.is_admin? %>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>

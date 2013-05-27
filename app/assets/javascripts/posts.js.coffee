@@ -8,6 +8,9 @@ jQuery ->
 		$('.post').removeClass('cache')
 		if genreId != "0"
 			$('.post[data-genre-id != '+genreId+']').addClass('cache')
+
+		$('li').removeAttr('class')
+		$('li[data-active-id = '+genreId+']').attr('class','active')
 			
 
 class PostDisplay
