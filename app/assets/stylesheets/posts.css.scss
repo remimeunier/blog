@@ -38,13 +38,6 @@ hr {
 	display: inline-block;
 }
 
-.content {
-	display: inline-block;
-	vertical-align: top;
-	width : 50%;
-
-}
-
 .next_prev_buttons a{
 	float: right;
 	margin-right: 5px;
@@ -60,6 +53,10 @@ hr {
 .imgligne {
 	vertical-align: bottom;
 }
+
+.rowtemplate {
+	height: 350px;
+}
 	
 }
 
@@ -67,4 +64,9 @@ hr {
 .post {
 	margin-bottom: 30px;
 	text-align: center;
+}
+
+.fluid-width-video-wrapper {
+	
+	height: 350px;
 }

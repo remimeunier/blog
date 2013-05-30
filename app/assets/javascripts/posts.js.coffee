@@ -1,5 +1,6 @@
 jQuery ->
 
+	$(".fluid-width-video-wrapper").fitVids()
 	if $("#posts").length
 		new PostDisplay()
 

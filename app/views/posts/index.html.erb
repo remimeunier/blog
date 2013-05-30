@@ -40,31 +40,34 @@
 <%  end %>
 
 <script id="post-template" type="text/template">
+<div class="row rowtemplate">
+  <div class="span6">
+    <div class="fluid-width-video-wrapper">
+      <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ link }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 
-<div class="bloc-video">
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ link }}" frameborder="0" allowfullscreen></iframe>
-</div>
 
+  <div class=" span6">
+    <p class="next_prev_buttons">
+      <a href="#" class="post-link" data-json="/posts/{{next_post}}.json"><i class="icon-fast-forward"></i></a>
+      <% if user_signed_in? && current_user.is_admin? %>
+        <a href="posts/{{id}}/edit" >Edit</a>
+        <a href=""></a>
+     <% end %>
+      <a href="#" class="post-link" data-json="/posts/{{prev_post}}.json"><i class="icon-fast-backward"></i></a>
+    </p>
+    <div class="ligne"></div>
 
-<div class="content">
-  <p class="next_prev_buttons">
-    <a href="#" class="post-link" data-json="/posts/{{next_post}}.json"><i class="icon-fast-forward"></i></a>
-    <% if user_signed_in? && current_user.is_admin? %>
-      <a href="posts/{{id}}/edit" >Edit</a>
-      <a href=""></a>
-   <% end %>
-    <a href="#" class="post-link" data-json="/posts/{{prev_post}}.json"><i class="icon-fast-backward"></i></a>
-  </p>
-  <div class="ligne"></div>
+    <h2>{{ title }}</h2>
+    <div class="ligne"></div>
 
-  <h2>{{ title }}</h2>
-  <div class="ligne"></div>
+    <b>Categorie : </b>{{  genre }}
+    <div class="ligne"></div>
 
-  <b>Categorie : </b>{{  genre }}
-  <div class="ligne"></div>
+    <b>Content : </b>{{ content }}
 
-  <b>Content : </b>{{ content }}
-
+  </div>
 </div>
 
 <div class="ligne"><img classe="imgligne" src="assets/cd.png"></div>
