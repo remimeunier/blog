@@ -1,10 +1,70 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 body .main-container{
 	padding-top: 50px;
 }
 
+hr {
+	color: #0088cc;
+	background-color: #0088cc;
+	height: 1px;
+	border: 0;
+}
+								/* banniere */
+.banniere {
+	background: url(/assets/lines.png) repeat-x center transparent;
+	border: 0;
+	height: 140px;
+	text-align: center;
+	margin: 5px 0;
+}
+
+.imgban {
+	vertical-align: bottom;
+}
+
+
+								/* classe pour le javascript */
 .cache {
 	display: none;
+}
+
+
+								/* display content */
+.bloc-video {
+	display: inline-block;
+}
+
+.content {
+	display: inline-block;
+	vertical-align: top;
+	width : 50%;
+
+}
+
+.next_prev_buttons a{
+	float: right;
+	margin-right: 5px;
+}
+
+.ligne{
+	background: url(/assets/lines.png) repeat-x center transparent;
+	border: 0;
+	height: 40px;
+	text-align: center;
+	margin: 10px 0;
+
+.imgligne {
+	vertical-align: bottom;
+}
+	
+}
+
+						/* index image */
+.post {
+	margin-bottom: 30px;
+	text-align: center;
 }

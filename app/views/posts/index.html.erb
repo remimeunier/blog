@@ -1,5 +1,7 @@
-<h1>Listing posts</h1>
-
+<h1>And her Dope Tunes</h1>
+<div class="banniere">
+  <img classe="imgban" src="assets/logocraki.png">
+</div>
 <div id="display-post" ></div>
 
 
@@ -39,30 +41,31 @@
 
 <script id="post-template" type="text/template">
 
+<div class="bloc-video">
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ link }}" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<div class="content">
+  <p class="next_prev_buttons">
+    <a href="#" class="post-link" data-json="/posts/{{next_post}}.json"><i class="icon-fast-forward"></i></a>
+    <% if user_signed_in? && current_user.is_admin? %>
+      <a href="posts/{{id}}/edit" >Edit</a>
+      <a href=""></a>
+   <% end %>
+    <a href="#" class="post-link" data-json="/posts/{{prev_post}}.json"><i class="icon-fast-backward"></i></a>
+  </p>
+  <div class="ligne"></div>
+
   <h2>{{ title }}</h2>
-  
+  <div class="ligne"></div>
 
-<p>
-  <b>Content:</b>
-   {{ content }}
-</p>
-  <img src="{{image.url}}">
-<p>
-  <b>Genre</b> {{  genre }}
-</p>
-<p>
-  <b>Vidéo:</b><br/>
-  <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ link }}" frameborder="0" allowfullscreen></iframe>
-</p>
-<p>
-  <a href="#" class="post-link" data-json="/posts/{{prev_post}}.json"><i class="icon-fast-backward"></i></a>
-  <% if user_signed_in? && current_user.is_admin? %>
-    <a href="posts/{{id}}/edit" >Edit</a>
-    <a href=""></a>
-<% end %>
-  <a href="#" class="post-link" data-json="/posts/{{next_post}}.json"><i class="icon-fast-forward"></i></a>
-</p>
+  <b>Categorie : </b>{{  genre }}
+  <div class="ligne"></div>
 
+  <b>Content : </b>{{ content }}
 
-<hr/>
+</div>
+
+<div class="ligne"><img classe="imgligne" src="assets/cd.png"></div>
 </script>

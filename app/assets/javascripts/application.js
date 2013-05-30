@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require mustache
+//= require fitvids
 //= require twitter/bootstrap
 //= require_tree .
 
