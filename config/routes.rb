@@ -1,4 +1,6 @@
 Blog::Application.routes.draw do
+  match "about" => "pages#about", :as => "about"
+
   devise_for :users
 
   resources :posts

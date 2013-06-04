@@ -16,4 +16,3 @@
 //= require fitvids
 //= require twitter/bootstrap
 //= require_tree .
-
