@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id,:title, :content, :image, :genre, :next_post, :prev_post, :link
+  attributes :id,:title, :content, :image, :genre, :next_post, :prev_post, :link, :autorized
 
   def genre
   	object.genre.name
@@ -23,4 +23,11 @@ class PostSerializer < ActiveModel::Serializer
   		Post.first.id
   	end
   end
+
+  def autorized
+    if current_user != nil and (current_user.is_admin? or object.user_id == current_user.id)
+      true
+    end
+  end
+
 end

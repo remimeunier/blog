@@ -51,10 +51,10 @@
   <div class=" span6">
     <p class="next_prev_buttons">
       <a href="#" class="post-link" data-json="/posts/{{next_post}}.json"><i class="icon-fast-forward"></i></a>
-      <% if (user_signed_in? && current_user.is_admin?) %>
+      {{#autorized}}
         <a href="posts/{{id}}/edit" >Edit</a>
-        <a href=""></a>
-     <% end %>
+      {{/autorized}}
+
       <a href="#" class="post-link" data-json="/posts/{{prev_post}}.json"><i class="icon-fast-backward"></i></a>
     </p>
     <div class="ligne"></div>
