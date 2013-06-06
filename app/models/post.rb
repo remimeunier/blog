@@ -1,10 +1,11 @@
 class Post < ActiveRecord::Base
   belongs_to :genre
-  attr_accessible :content, :title, :created_at, :link, :genre_id, :image
+  belongs_to :user
+  attr_accessible :content, :title, :created_at, :link, :genre_id, :image, :user_id
 
 
-  	# voir la gem papercast avec imagemagic pour le redimmensionnement
-  has_attached_file :image, :styles => { :thumb => "300x300"}
+ 
+  has_attached_file :image, :styles => { :thumb => "200x200"}
 
 	validates_attachment_presence :image
 	validates_attachment_size :image, :less_than => 5.megabytes

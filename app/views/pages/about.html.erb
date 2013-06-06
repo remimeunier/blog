@@ -1,2 +1,123 @@
-<h1>Page#about</h1>
-<p>Find me in app/views/page/about.html.erb</p>
+<div class="banniere">
+  <img classe="imgban" src="assets/logocraki.png">
+</div>
+<h1>Rapport</h1>
+<hr/>
+<p>
+	Notre projet est la réalisation d'un site web. Il s'agit d'un blog de partage de musique où les utilisateurs auront la possibilité d'ajouter, d'éditer ou de supprimer leurs propres données. 
+	Seul l'administrateur aura les droits pour accéder et modifier l'intégralité des données.
+</p>
+<hr/>
+<p>
+	<b>Le Framework :</b><br/>
+	Pour ce projet nous avons décidé d'utiliser Ruby and Rails, un framework libre qui suit le motif de conception Modèle-Vue-Contrôleur. Nous l'avons choisi car il s'agit d'une façon moderne de programmer.De plus la communauté Ruby est trés développée sur internet (<a href="http://guides.rubyonrails.org/">rubyguide</a> et <a href="http://railscasts.com/">railscasts</a>).
+</p>
+<hr/>
+<p>
+	<b>Les modèles:</b><br/>
+	Un modèle représente l’information, les données d’une application et les règles pour la manipuler. Sur notre site, nous avons quatre modèles.<br/>
+	-Post : Il s'agit de notre modéle principale.<br/>
+	-Genre : Ce modèle contient juste un nom et un id.<br/>
+	-User : Ce modèle contient toutes les données utiles sur les utilisateurs.<br/>
+	Ces trois modéles correspondent à nos trois tables présentes dans notre base de données. Elles sont reliés par des relations logiques : "Post belongs_to user and genre" et "User has_many posts".<br/>
+	<br/>
+	Nous avons aussi un modèle ability qui définit les droits des users.
+</p>
+<p>
+	<b>Les contrôleurs :</b><br/>
+	D'aprés railsguide : "Les contrôleurs constituent la “colle” entre les modèles et les vues. En Rails, les contrôleurs sont responsables du traitement des requêtes entrantes en provenance du navigateur, de l’interrogation des modèles pour obtenir des données, et du passage de ces données aux vues pour leur présentation."<br/>
+	Ici, ce qu'il est important de comprendre, c'est le posts_controlleur. Le traitement se fait de cette façon :
+<TABLE BORDER="1"> 
+	<TR> 
+ 		<TH> Http method </TH> 
+		<TH> path </TH> 
+	 	<TH> action </TH> 
+ 		<TH> used for </TH> 
+	</TR> 
+	<TR> 
+		<TH> GET </TH> 
+ 		<TD> /posts </TD> 
+ 		<TD> index </TD> 
+ 		<TD> display a list of all posts </TD> 
+  	</TR>
+  	<TR> 
+ 		<TH> GET </TH> 
+ 		<TD> /posts/new </TD> 
+ 		<TD> new </TD> 
+ 		<TD> return an html form for creating a new post </TD> 
+	</TR>
+  	<TR> 
+ 		<TH> POST </TH> 
+ 		<TD> /posts </TD> 
+ 		<TD> create </TD> 
+ 		<TD> create a new photo </TD> 
+	</TR> 
+  	<TR> 
+ 		<TH> GET </TH> 
+ 		<TD> /posts/:id </TD> 
+ 		<TD> show </TD> 
+ 		<TD> display a specific post </TD> 
+	</TR>
+  	<TR> 
+ 		<TH> GET </TH> 
+ 		<TD> /posts/:id/edit </TD>
+ 		<TD> edit </TD> 
+ 		<TD> return an html form for editing a post </TD> 
+	</TR>
+  	<TR> 
+ 		<TH> PUT </TH> 
+ 		<TD> /posts/:id </TD> 
+ 		<TD> update </TD> 
+ 		<TD> update a specific post </TD> 
+	</TR>
+  	<TR> 
+ 		<TH> DELETE </TH> 
+ 		<TD> /posts/:id </TD> 
+ 		<TD> destroy </TD> 
+ 		<TD> delete a specific post </TD> 
+	</TR> 
+
+</TABLE> 
+</p>
+<p>
+	<b>Les vues : </b><br/>
+	Les vues sont les interfaces "Utilisateur" de l'application. Les vues sont des fichiers HTML contenant du code Ruby intégré.<br/>
+	La vue application.html.erb présente dans views/layouts est la vue principale appelée sur toutes les pages du site web. Dans cette vue, on appelle la fonction yield, qui va afficher la vue secondaire que le contrôlleur va lui indiquer.<br/>
+	Nous avons des vues secondaires qui correspondent aux edit, index, new et show pour le contrôlleur posts. Ainsi que la vue about, page où vous vous trouvez actuellement.
+</p>
+<hr/>
+<p>
+	<b>Schema de la base :</b><br/>
+	Table Post :<br/>
+	<img classe="imgban" src="assets/tablepost.png">
+	<br/>
+	Table User :<br/>
+	<img classe="imgban" src="assets/tableuser.png">
+	<br/>
+	Table genre :<br/>
+	<img classe="imgban" src="assets/tablegenre.png">
+	<br/>
+</p>
+<hr/>
+<p>
+	<b>CSS et Javascript : </b><br/>
+	Nous n'avons pas beaucoup modifié le CSS (app/assets/stylesgeets/post.css.scss). En effet, le gros du travail du design a été réalisé grâce à boostrap, une bibliothèque css et javascript. Par exemple, nous avons pu créer la barre de navigation et les boutons. Mais le plus intéressant a été l'utilisation du "default grip système" qui permet de diviser l'écran en 12 colonnes, et d'y insérer nos éléments. L'intêret de ce système est qu'il est 'responsive', c'est-à-dire qu'il s'adapte à l'écran.<br/>
+	<br/>
+	Nous avons utilisé deux scipts javascript : mustach et fitvid (pour rendre la video responsive).<br/>
+	<br/>
+	Nous avons aussi réalisé un script en coffeescript pour réaliser différentes actions sur les vues du post. On le retrouve dans app/assets/javascript/posts.js.coffe.	
+</p>
+<hr/>
+<p>
+	<b>Les gems :</b><br/>
+	Nous avons choisi d'utiliser ruby and rails pour son systéme de gem trés pratique (voir dans vendor/gemfile). Il s'agit d'une bibliothèque libre qui est réalisée de façon contributive par des développeurs.<br/>
+	Nous avons utilisé : <br/>
+	-devise<br/>
+	-cancan<br/>
+	-paperclip<br/>
+	-active_model_serializers<br/>
+	-bootstrap<br/>
+</p>
+<hr/>
+<br/>
+

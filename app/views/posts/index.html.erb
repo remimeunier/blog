@@ -35,7 +35,7 @@
 </table>
 
 <br />
-<% if user_signed_in? && current_user.is_admin? %>
+<% if user_signed_in? %>
 <%= link_to 'New Post', new_post_path %>
 <%  end %>
 
@@ -51,7 +51,7 @@
   <div class=" span6">
     <p class="next_prev_buttons">
       <a href="#" class="post-link" data-json="/posts/{{next_post}}.json"><i class="icon-fast-forward"></i></a>
-      <% if user_signed_in? && current_user.is_admin? %>
+      <% if (user_signed_in? && current_user.is_admin?) %>
         <a href="posts/{{id}}/edit" >Edit</a>
         <a href=""></a>
      <% end %>

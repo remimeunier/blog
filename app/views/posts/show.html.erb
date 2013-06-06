@@ -9,6 +9,7 @@
 <p>
 	<b>Genre: </b>
 	<%= @post.genre.name %>
+
 </p>
 <p>
   <b>Vidéo:</b>
@@ -16,6 +17,11 @@
   <%= @post.link %>
   <iframe width="560" height="315" src="http://www.youtube.com/embed/<%= @post.link %>" frameborder="0" allowfullscreen></iframe>
 </div>
+</p>
+<p>
+	<b>email du posteur : <b/>
+  <%= @post.user.email %>
+
 </p>
 
 
